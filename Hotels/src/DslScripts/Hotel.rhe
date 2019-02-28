@@ -1,0 +1,23 @@
+Module Hotels
+{
+    Entity Hotel
+    {
+        ShortString Code { AutoCode; }
+        ShortString Name;
+        ShortString Address;
+    }
+
+    Entity Room
+    {
+        ShortString Code { AutoCode; }
+        ShortString Name;
+        Integer RoomType;
+        Bool IsAvailable;
+        Reference Hotel;
+    }
+
+    Entity Reservation 
+    {
+
+    }
+}
