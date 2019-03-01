@@ -39,10 +39,32 @@ Module Hotels
         Reference Invoice;
     }
 
-    Entity ServiceProduct 
+    Entity Service 
     {
         ShortString Name;
         Money Price;
+    }
+
+
+    Entity Product
+    {
+        ShortString Name;
+        ShortString ProductType;
+        Money Price;
+    }
+
+    Entity Food 
+    {
+        Extends Hotels.Product;
+
+        ShortString FoodType;
+        Reference Product.ProductType;
+    }
+
+    Entity ServiceProduct 
+    {
+        Reference Service;
+        Reference Name;
     }
 
     Entity Invoice
