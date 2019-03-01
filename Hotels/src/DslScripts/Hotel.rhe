@@ -2,22 +2,61 @@ Module Hotels
 {
     Entity Hotel
     {
-        ShortString Code { AutoCode; }
         ShortString Name;
         ShortString Address;
     }
 
     Entity Room
     {
-        ShortString Code { AutoCode; }
         ShortString Name;
         Integer RoomType;
-        Bool IsAvailable;
         Reference Hotel;
+    }
+
+    Entity Room 
+    {
+        ShortString Name;
+        Money Price;
+    }
+
+    Entity Guest
+    {
+        LongString FirstName;
+        LongString LastName;
+        LongString Address;
+        LongString EmailAddress;
+        LongString PhoneNumber;
     }
 
     Entity Reservation 
     {
+        Date StartDate;
+        Date EndDate;
+        Reference Guest;
+        Reference Room;
+        Decimal Discount;
+        Integer ReservationStatus;
+        Reference Invoice;
+    }
 
+    Entity ServiceProduct 
+    {
+        ShortString Name;
+        Money Price;
+    }
+
+    Entity Invoice
+    {
+        Bool IsPaid;
+        Reference Reservation;
+        Reference Item;
+    }
+
+    Entity Item
+    {
+        ShortString Name;
+        Money Price;
+        Reference Invoice;
+        Reference ServiceProduct;
     }
 }
