@@ -28,6 +28,16 @@ Module Hotels
         LongString PhoneNumber;
     }
 
+    Action Insert5Guests 
+        '(parameter, repository, userInfo) =>
+        {
+                for (int i=0; i<5; i++)
+                {
+                    var newGuest = new Hotels.Hotel.Guest { FirstName = "Rhetos", LastName = "Guest", Address = "Rhetos Workshop 13", EmailAddress = "rhe@tos.hotel"};
+                    repository.Hotels.Hotel.Guest.Insert(newGuest);
+                }
+        }';
+
     Entity Reservation 
     {
         Date StartDate;
@@ -59,7 +69,7 @@ Module Hotels
 
         ShortString FoodType;
         Reference Product.ProductType;
-    }
+    }   
 
     Entity ServiceProduct 
     {
