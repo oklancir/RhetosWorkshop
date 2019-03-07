@@ -3,7 +3,6 @@ using Rhetos.Configuration.Autofac;
 using Rhetos.Dom.DefaultConcepts;
 using Rhetos.Logging;
 using Rhetos.Utilities;
-using System;
 using System.IO;
 using System.Linq;
 
@@ -27,9 +26,10 @@ namespace Hotels.Playground
 
                 repository.Hotels.Guest.Load(k => k.FirstName.StartsWith("O")).Dump();
 
-                repository.Hotels.Guest.Query().ToList().ToString().Dump();
+                repository.Hotels.Guest.Query().ToList().Dump();
+                repository.Hotels.Guest.Load().Dump();
 
-                Guid id = new Guid("");
+                repository.Hotels.Room.Load().Dump();
             }
         }
     }
