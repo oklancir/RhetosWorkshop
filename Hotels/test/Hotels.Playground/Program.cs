@@ -30,6 +30,15 @@ namespace Hotels.Playground
                 repository.Hotels.Guest.Load().Dump();
 
                 repository.Hotels.Room.Load().Dump();
+
+                var filterParameter = new Hotels.Search
+                {
+                    Pattern = "cu"
+                };
+
+                var query = repository.Hotels.Guest.Query(filterParameter);
+                query.ToString().Dump();
+                query.ToString().Dump("sql");
             }
         }
     }

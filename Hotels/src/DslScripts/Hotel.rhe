@@ -28,6 +28,40 @@ Module Hotels
         LongString Address { Required; RegExMatch "\d" "Address needs to contain at least one digit."; }
         LongString EmailAddress { Required; }
         LongString PhoneNumber { Required; }
+
+        ItemFilter CommonMisspelling 'item => item.FirstName.Contains("Orzen")';
+        InvalidData CommonMisspelling 'It is not allowed to enter misspelled word "Orzen"';
+
+        ComposableFilterBy Search '(query, respository, parameter) =>
+            {
+                if (parameter.Not == true)
+                    return query.Where(item => !item.FirstName.Contains(parameter.Pattern));
+                else
+                    return query.Where(item => item.FirstName.Contains(parameter.Pattern));
+            }';
+        
+        FilterBy Search2 '(respository, parameter) =>
+            {
+                var query = repository.Hotels.Guest.Query();
+                if (parameter.Not == true)
+                    return query.Where(item => !item.FirstName.Contains(parameter.Pattern))
+                        .ToSimple().ToArray();
+                else
+                    return query.Where(item => item.FirstName.Contains(parameter.Pattern))
+                        .ToSimple().ToArray();
+            }';
+    }
+
+    Parameter Search
+    {
+        ShortString Pattern;
+        Bool Not;
+    }
+    
+    Parameter Search2
+    {
+        ShortString Pattern;
+        Bool Not;
     }
 
     Action Insert5Guests 
