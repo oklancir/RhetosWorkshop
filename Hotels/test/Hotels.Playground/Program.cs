@@ -31,9 +31,11 @@ namespace Hotels.Playground
 
                 repository.Hotels.Room.Load().Dump();
 
+                repository.Hotels.Insert5Guests.Execute(null);
+
                 var filterParameter = new Hotels.Search
                 {
-                    Pattern = "cu"
+                    Pattern = "Oz"
                 };
 
                 var query = repository.Hotels.Guest.Query(filterParameter);

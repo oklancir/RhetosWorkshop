@@ -33,6 +33,18 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Autofac, Version=3.5.0.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\dist\HotelsRhetosServer\bin\Autofac.dll</HintPath>
+    </Reference>
+    <Reference Include="Autofac.Configuration, Version=3.3.0.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\dist\HotelsRhetosServer\bin\Autofac.Configuration.dll</HintPath>
+    </Reference>
+    <Reference Include="Autofac.Integration.Wcf, Version=3.0.0.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\dist\HotelsRhetosServer\bin\Autofac.Integration.Wcf.dll</HintPath>
+    </Reference>
     <Reference Include="ConsoleDump, Version=0.7.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>packages\ConsoleDump.0.7.0\lib\net45\ConsoleDump.dll</HintPath>
     </Reference>
