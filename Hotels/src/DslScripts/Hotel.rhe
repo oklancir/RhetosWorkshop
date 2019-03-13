@@ -98,6 +98,7 @@ Module Hotels
         Decimal Discount;
         Integer ReservationStatus { DefaultValue 'item => 1'; }
         Reference Invoice;
+        Reference Hotel;
 
         ItemFilter EndDateBeforeStartDate 'item => item.EndDate != null && item.EndDate.Value < item.StartDate.Value';
         InvalidData EndDateBeforeStartDate 'It is not allowed to enter EndDate before the StartDate.';
